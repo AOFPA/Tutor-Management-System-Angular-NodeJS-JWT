@@ -1,0 +1,212 @@
+<div class="register-page" style="min-height: 542px">
+  <div class="register-box">
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <a href="" class="h1"><b>AOFPA</b>ติวเตอร์</a>
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg">Register a new membership</p>
+
+        <form [formGroup]="addUserForm" (submit)="createUser()">
+          <div class="input-group mb-3">
+            <select
+              class="form-control"
+              formControlName="prefix_id"
+              name="prefix_id"
+            >
+              <option
+                *ngFor="let prefix of listPrefix.result"
+                [value]="prefix.prefix_id"
+              >
+                {{ prefix.prefix_name }}
+              </option>
+            </select>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span>คำนำหน้าชื่อ</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="ชื่อ"
+              formControlName="cus_fname"
+              name="cus_fname"
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="นามสกุล"
+              formControlName="cus_lname"
+              name="cus_lname"
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="ชื่อเล่น"
+              formControlName="cus_nname"
+              name="cus_nname"
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <select
+              class="form-control"
+              formControlName="cass_id"
+              name="cass_id"
+            >
+              <option
+                *ngFor="let class of listClass.result"
+                [value]="class.class_id"
+              >
+                {{ class.class_name }}
+              </option>
+            </select>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span>ชั้น</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <select
+              class="form-control"
+              formControlName="school_id"
+              name="school_id"
+            >
+              <option
+                *ngFor="let school of listSchool.result"
+                [value]="school.school_id"
+              >
+                {{ school.school_name }}
+              </option>
+            </select>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span>โรงเรียน</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="เบอร์โทร"
+              formControlName="cus_tel"
+              name="cus_tel"
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              formControlName="username"
+              name="username"
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Password"
+              formControlName="userpass"
+              name="userpass"
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="input-group mb-3">
+              <input type="password" class="form-control" placeholder="Retype password">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+            </div> -->
+          <div class="row">
+            <div class="col-8">
+              <!-- <div class="icheck-primary">
+                  <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                  <label for="agreeTerms">
+                   I agree to the <a href="#">terms</a>
+                  </label>
+                </div> -->
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block">
+                Register
+              </button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+
+        <!-- <div class="social-auth-links text-center">
+            <a href="#" class="btn btn-block btn-primary">
+              <i class="fab fa-facebook mr-2"></i>
+              Sign up using Facebook
+            </a>
+            <a href="#" class="btn btn-block btn-danger">
+              <i class="fab fa-google-plus mr-2"></i>
+              Sign up using Google+
+            </a>
+          </div> -->
+
+        <a href="/" class="text-center">I already have a membership</a>
+      </div>
+      <!-- /.form-box -->
+    </div>
+    <!-- /.card -->
+  </div>
+  <!-- /.register-box -->
+
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+</div>

@@ -1,0 +1,124 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="p-3 content-wrapper" style="min-height: 214px">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>แก้ไขข้อมูลนักเรียน</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/cus/list']">ตารางนักเรียน</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a>แก้ไขข้อมูลนักเรียน</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Edit Form</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body" *ngIf="dataLoaded">
+              <form [formGroup]="editUserForm" (submit)="confirmBox()">
+                <div class="form-group">
+                  <label for="text">รหัสคำนำหน้าชื่อ</label>
+                  <input
+                    formControlName="prefix_id"
+                    type="text"
+                    class="form-control"
+                    id="text"
+                    placeholder="กรุณาป้อนรหัสคำนำหน้าชื่อ"
+                    name="text"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="pwd">ชื่อ</label>
+                  <input
+                    formControlName="cus_fname"
+                    type="text"
+                    class="form-control"
+                    placeholder="กรุณาป้อนชื่อ"
+                    name="pswd"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="pwd">นามสกุล</label>
+                  <input
+                    formControlName="cus_lname"
+                    type="text"
+                    class="form-control"
+                    placeholder="กรุณาป้อนนามสกุล"
+                    name="pswd"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="pwd">ชื่อเล่น</label>
+                  <input
+                    formControlName="cus_nname"
+                    type="text"
+                    class="form-control"
+                    placeholder="กรุณาป้อนชื่อเล่น"
+                    name="pswd"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="pwd">เบอร์โทร</label>
+                  <input
+                    formControlName="cus_tel"
+                    type="text"
+                    class="form-control"
+                    placeholder="กรุณาป้อนรหัสโรงเรียน"
+                    name="pswd"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="pwd">รหัสชั้นเรียน</label>
+                  <input
+                    formControlName="cass_id"
+                    type="text"
+                    class="form-control"
+                    placeholder="กรุณาป้อนรหัสชั้นเรียน"
+                    name="pswd"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="pwd">รหัสโรงเรียน</label>
+                  <input
+                    formControlName="school_id"
+                    type="text"
+                    class="form-control"
+                    placeholder="กรุณาป้อนรหัสโรงเรียน"
+                    name="pswd"
+                  />
+                </div>
+
+                <button type="submit" class="btn btn-primary">ยืนยัน</button>
+              </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

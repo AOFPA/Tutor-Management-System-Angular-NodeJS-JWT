@@ -1,0 +1,68 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="p-3 content-wrapper" style="min-height: 214px">
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>ตารางลงทะเบียน</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item active">ตารางลงทะเบียน</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 *ngIf="listUsers.result" class="card-title">
+              ข้อมูลทั้งหมด {{listUsers.result.length}} รายการ
+            </h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table  class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">รหัส</th>
+                  <th scope="col">ชื่อ-สกุล</th>
+                  <th scope="col">วิชา</th>
+                  <th scope="col">ราคา</th>
+                  <th scope="col">สถานะ</th>
+                  <th scope="col">ดำเนินการ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of listUsers">
+                  <th scope="row">{{ user.reg_id }}</th>
+                  <td>{{ user.cus_fullname }}</td>
+                  <td>{{ user.subject_name }}</td>
+                  <td>{{ user.course_total }}</td>
+                  <td>{{ user.status_name }}</td>
+                  <td>
+                    <a  [routerLink]="['/reg/view',user.reg_id]" type="button" class="btn btn-outline-primary mr-3">ดู</a>
+                      <a  [routerLink]="['/reg/edit',user.reg_id]" type="button" class="btn btn-outline-warning mr-3">แก้ไข</a>
+                      <a   (click)="confirmBox(user.reg_id)"  type="button" class="btn btn-outline-danger">ลบ</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<app-footer></app-footer>
+

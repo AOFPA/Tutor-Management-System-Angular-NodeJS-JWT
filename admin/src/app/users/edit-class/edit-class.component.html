@@ -1,0 +1,58 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="p-3 content-wrapper" style="min-height: 214px">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>แก้ไขข้อมูลชั้นเรียน</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/class/list']">ตารางชั้นเรียน</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a>แก้ไขข้อมูลชั้นเรียน</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Edit Form</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body" *ngIf="dataLoaded">
+              <form [formGroup]="editUserForm" (submit)="confirmBox()">
+
+                <div class="form-group">
+                  <label for="class_name">ชั้นเรียน</label>
+                  <input
+                    formControlName="class_name"
+                    type="text"
+                    class="form-control"
+                    
+                    name="class_name"
+                  />
+                </div>
+
+                <button  type="submit" class="btn btn-primary">ยืนยัน</button>
+              </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

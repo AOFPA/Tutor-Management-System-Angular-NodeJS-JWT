@@ -1,0 +1,138 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="p-3 content-wrapper" style="min-height: 214px">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>แก้ไขข้อมูลการลงทะเบียนเรียน</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/reg/list']">ตารางทะเบียนเรียน</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a>แก้ไขข้อมูลการลงทะเบียนเรียน</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Edit Form</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body" *ngIf="dataLoaded">
+              <form [formGroup]="editUserForm" (submit)="confirmBox()">
+                <div class="form-group">
+                    <label for="text">นักเรียน</label>
+                    <div class="input-group mb-3">
+                       
+                      <select
+                        class="form-control"
+                        formControlName="cus_id"
+                        name="cus_id"
+                      >
+                      <option disabled *ngIf="userDetails.result">ข้อมูลเดิม : {{ userDetails.result[0].cus_fullname }}</option>
+                        <option
+                          *ngFor="let cus of listCustomer.result"
+                          [value]="cus.cus_id"
+                        >
+                        {{ cus.cus_id }} {{ cus.cus_fname }} {{ cus.cus_lname }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="text">คอร์สเรียน</label>
+                    <div class="input-group mb-3">
+                      <select
+                        class="form-control"
+                        formControlName="course_id"
+                        name="course_id"
+                      >
+                      <option disabled *ngIf="userDetails.result">ข้อมูลเดิม : {{ userDetails.result[0].subject_name }} {{ userDetails.result[0].reg_class }} {{ userDetails.result[0].cate_name }} {{ userDetails.result[0].system_name }}</option>
+                        <option
+                          *ngFor="let course of listCourse.result"
+                          [value]="course.course_id"
+                        >
+                          {{ course.subject_name }} {{ course.class_name }} {{ course.cate_name }} {{ course.system_name }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="text">สถานะ</label>
+                    <div class="input-group mb-3">
+                      <select
+                        class="form-control"
+                        formControlName="status_id"
+                        name="status_id"
+                      >
+                      <option disabled *ngIf="userDetails.result">ข้อมูลเดิม : {{ userDetails.result[0].status_name }}</option>
+                        <option
+                          *ngFor="let status of listStatus.result"
+                          [value]="status.status_id"
+                        >
+                          {{ status.status_name }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label *ngIf="userDetails.result">วันเริ่มเรียน: (ข้อมูลเดิม) {{ userDetails.result[0].reg_start }}</label>
+                    
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        </div>
+                        <input type="date" id="birthday" formControlName="reg_start" name="reg_start">
+                      </div>
+                      <!-- /.input group -->
+                    </div>
+  
+                    <div class="form-group">
+                        <label *ngIf="userDetails.result">วันสิ้นสุดการเรียน: (ข้อมูลเดิม) {{ userDetails.result[0].reg_end }}</label>
+    
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        </div>
+                        <input type="date" id="birthday" formControlName="reg_end" name="reg_end">
+                      </div>
+                      <!-- /.input group -->
+                    </div>
+                <!-- <div class="form-group">
+                  <label for="course_price">คอร์สเรียน</label>
+                  <input
+                    formControlName="course_price"
+                    type="text"
+                    class="form-control"
+                    
+                    name="course_price"
+                  />
+                </div> -->
+
+                <button  type="submit" class="btn btn-primary">ยืนยัน</button>
+              </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,146 @@
+<!-- <p>view-users works!</p>
+<div *ngIf="listUsers.result">
+    {{listUsers.result[0].cus_fname}}
+</div> -->
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="p-3 content-wrapper" style="min-height: 214px">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Details</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/reg/list']">ตารางทะเบียนเรียน</a>
+            </li>
+            <li class="breadcrumb-item active">รายละเอียด</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Profile Image -->
+          <div class="card card-primary card-outline">
+            <div class="card-body box-profile">
+              <div class="text-center">
+                <!-- <img class="profile-user-img img-fluid img-circle" src="" alt="User profile picture"> -->
+              </div>
+
+              <h3 class="profile-username text-center" *ngIf="listUsers.result">
+                 {{ listUsers.result[0].cus_fullname }}
+              </h3>
+
+              <p class="text-muted text-center" *ngIf="listUsers.result">
+                คอร์สเรียน : {{ listUsers.result[0].subject_name }} {{ listUsers.result[0].cate_name }} {{ listUsers.result[0].system_name }} {{ listUsers.result[0].reg_class }}
+              </p>
+
+              <ul class="list-group list-group-unbordered mb-3">
+                <li class="list-group-item">
+                  <b>รหัส</b>
+                  <a class="float-right" *ngIf="listUsers.result">{{
+                    listUsers.result[0].reg_id
+                  }}</a>
+                </li>
+               
+                <li class="list-group-item">
+                  <b>ชื่อเล่น</b>
+                  <a class="float-right" *ngIf="listUsers.result">{{
+                    listUsers.result[0].system_name
+                  }}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>เบอร์โทร</b>
+                  <a class="float-right" *ngIf="listUsers.result">{{
+                    listUsers.result[0].cus_tel
+                  }}</a>
+                </li>
+
+                <li class="list-group-item">
+                  <b>ชั้นเรียน</b>
+                  <a class="float-right" *ngIf="listUsers.result">{{
+                    listUsers.result[0].class_name
+                  }} </a>
+                </li>
+
+                <li class="list-group-item">
+                    <b>โรงเรียน</b>
+                    <a class="float-right" *ngIf="listUsers.result">{{
+                      listUsers.result[0].school_name
+                    }} </a>
+                  </li>
+
+                  <li class="list-group-item">
+                    <b>ราคาหนังสือ</b>
+                    <a class="float-right" *ngIf="listUsers.result">{{
+                      listUsers.result[0].course_bookprice
+                    }} </a>
+                  </li>
+
+                  <li class="list-group-item">
+                    <b>ราคาคอร์ส</b>
+                    <a class="float-right" *ngIf="listUsers.result">{{
+                      listUsers.result[0].course_price
+                    }} </a>
+                  </li>
+
+                  <li class="list-group-item">
+                    <b>วันที่ลงทะเบียน</b>
+                    <a class="float-right" *ngIf="listUsers.result">{{
+                      listUsers.result[0].reg_time
+                    }} </a>
+                  </li>
+
+                  <li class="list-group-item">
+                    <b>วันเริ่มเรียน</b>
+                    <a class="float-right" *ngIf="listUsers.result">{{
+                      listUsers.result[0].reg_start
+                    }} </a>
+                  </li>
+
+                  <li class="list-group-item">
+                    <b>วันสิ้นสุดการเรียน</b>
+                    <a class="float-right" *ngIf="listUsers.result">{{
+                      listUsers.result[0].reg_end
+                    }} </a>
+                  </li>
+
+                  <li class="list-group-item">
+                    <b>สถานะ</b>
+                    <a class="float-right" *ngIf="listUsers.result">{{
+                      listUsers.result[0].status_name
+                    }} </a>
+                  </li>
+              </ul>
+
+              <a
+                [routerLink]="['/reg/list']"
+                class="btn btn-primary btn-block"
+                ><b>Back</b></a
+              >
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+          <!-- About Me Box -->
+
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+</div>
+<app-footer></app-footer>

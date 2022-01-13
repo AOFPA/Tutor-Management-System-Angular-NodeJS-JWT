@@ -1,0 +1,111 @@
+<!-- <p>view-users works!</p>
+<div *ngIf="listUsers.result">
+    {{listUsers.result[0].cus_fname}}
+</div> -->
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="p-3 content-wrapper" style="min-height: 214px">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Details</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/course/list']">ตารางคอร์ส</a>
+            </li>
+            <li class="breadcrumb-item active">รายละเอียด</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <!-- Profile Image -->
+          <div class="card card-primary card-outline">
+            <div class="card-body box-profile">
+              <div class="text-center">
+                <!-- <img class="profile-user-img img-fluid img-circle" src="" alt="User profile picture"> -->
+              </div>
+
+              <h3 class="profile-username text-center" *ngIf="listUsers.result">
+                วิชา {{ listUsers.result[0].subject_name }}
+              </h3>
+
+              <p class="text-muted text-center" *ngIf="listUsers.result">
+                {{ listUsers.result[0].class_name }}
+              </p>
+
+              <ul class="list-group list-group-unbordered mb-3">
+                <li class="list-group-item">
+                  <b>รหัส</b>
+                  <a class="float-right" *ngIf="listUsers.result">{{
+                    listUsers.result[0].course_id
+                  }}</a>
+                </li>
+               
+                <li class="list-group-item">
+                  <b>ระบบการเรียน</b>
+                  <a class="float-right" *ngIf="listUsers.result">{{
+                    listUsers.result[0].system_name
+                  }}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>ประเภทวิชา</b>
+                  <a class="float-right" *ngIf="listUsers.result">{{
+                    listUsers.result[0].cate_name
+                  }}</a>
+                </li>
+
+                <li class="list-group-item">
+                  <b>ราคาหนังสือ</b>
+                  <a class="float-right" *ngIf="listUsers.result">{{
+                    listUsers.result[0].course_bookprice 
+                  }} บาท</a>
+                </li>
+
+                <li class="list-group-item">
+                    <b>ราคาคอร์ส</b>
+                    <a class="float-right" *ngIf="listUsers.result">{{
+                      listUsers.result[0].course_price
+                    }} บาท</a>
+                  </li>
+
+                  <li class="list-group-item">
+                    <b>ราคารวม</b>
+                    <a class="float-right" *ngIf="listUsers.result">{{
+                      listUsers.result[0].course_total
+                    }} บาท</a>
+                  </li>
+              </ul>
+
+              <a
+                [routerLink]="['/course/list']"
+                class="btn btn-primary btn-block"
+                ><b>Back</b></a
+              >
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+          <!-- About Me Box -->
+
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+</div>
+<app-footer></app-footer>

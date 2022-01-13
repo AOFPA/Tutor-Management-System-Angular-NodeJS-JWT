@@ -1,0 +1,66 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="p-3 content-wrapper" style="min-height: 214px">
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>ตารางนักเรียน</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item active">ตารางนักเรียน</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 *ngIf="listUsers.result" class="card-title">
+              ข้อมูลทั้งหมด {{listUsers.result.length}} รายการ
+            </h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table  class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">รหัส</th>
+                  <th scope="col">ชื่อ</th>
+                  <th scope="col">นามสกุล</th>
+                  <th scope="col">ชื่อเล่น</th>
+                  <th scope="col">ดำเนินการ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of listUsers.result">
+                  <th scope="row">{{ user.cus_id }}</th>
+                  <td>{{ user.cus_fname }}</td>
+                  <td>{{ user.cus_lname }}</td>
+                  <td>{{ user.cus_nname }}</td>
+                  <td>
+                    <a  [routerLink]="['/cus/view',user.cus_id]" type="button" class="btn btn-outline-primary mr-3">รายละเอียด</a>
+                      <a  [routerLink]="['/cus/edit',user.cus_id]" type="button" class="btn btn-outline-warning mr-3">แก้ไข</a>
+                      <a  (click)="confirmBox(user.cus_id)" type="button" class="btn btn-outline-danger">ลบ</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<app-footer></app-footer>
+

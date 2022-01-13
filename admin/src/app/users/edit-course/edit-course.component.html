@@ -1,0 +1,165 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="p-3 content-wrapper" style="min-height: 214px">
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>แก้ไขข้อมูลคอร์สเรียน</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item">
+              <a [routerLink]="['/course/list']">ตารางคอร์สเรียน</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a>แก้ไขข้อมูลคอร์สเรียน</a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Edit Form</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body" *ngIf="dataLoaded">
+              <form [formGroup]="editUserForm" (submit)="confirmBox()">
+
+                
+                    <div class="form-group">
+                      <label for="text">ประเภทวิชา</label>
+                      <div class="input-group mb-3">
+                        <select
+                          class="form-control"
+                          formControlName="cate_id"
+                          name="cate_id"
+                        >
+                        <option disabled *ngIf="listCate.result">ข้อมูลเดิม : {{ listCate.result[0].cate_name }}</option>
+                          <option
+                            *ngFor="let cate of listCate.result"
+                            [value]="cate.cate_id"
+                          >
+                            {{ cate.cate_name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+    
+                    <div class="form-group">
+                      <label for="text">ระบบการเรียน</label>
+                      <div class="input-group mb-3">
+                        <select
+                          class="form-control"
+                          formControlName="system_id"
+                          name="system_id"
+                        >
+                        <option disabled *ngIf="listSystem.result">ข้อมูลเดิม : {{ listSystem.result[0].system_name }}</option>
+                          <option
+                            *ngFor="let system of listSystem.result"
+                            [value]="system.system_id"
+                          >
+                            {{ system.system_name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+    
+                    <div class="form-group">
+                      <label for="text">วิชา</label>
+                      <div class="input-group mb-3">
+                        <select
+                          class="form-control"
+                          formControlName="subject_id"
+                          name="subject_id"
+                        >
+                        <option disabled *ngIf="listSubject.result">ข้อมูลเดิม : {{ listSubject.result[0].subject_name }}</option>
+                          <option
+                            *ngFor="let subject of listSubject.result"
+                            [value]="subject.subject_id"
+                          >
+                            {{ subject.subject_name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+    
+    
+                    <div class="form-group">
+                        <label for="text">ระดับชั้น</label>
+                        <div class="input-group mb-3">
+                          <select
+                            class="form-control"
+                            formControlName="class_id"
+                            name="class_id"
+                          >
+                          <option disabled *ngIf="listClass.result">ข้อมูลเดิม : {{ listClass.result[0].class_name }}</option>
+                            <option
+                              *ngFor="let class of listClass.result"
+                              [value]="class.class_id"
+                            >
+                              {{ class.class_name }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+    
+                    <div class="form-group">
+                      <label for="text">ราคาคอร์ส</label>
+                      <input
+                        formControlName="course_price"
+                        type="text"
+                        class="form-control"
+                        name="course_price"
+                      />
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="text">ราคาหนังสือ</label>
+                        <input
+                          formControlName="course_bookprice"
+                          type="text"
+                          class="form-control"
+                          name="course_bookprice"
+                        />
+                      </div>
+    
+                      <div class="form-group">
+                        <label for="text">รวม</label>
+                        <input
+                          formControlName="course_total"
+                          type="text"
+                          class="form-control"
+                          name="course_total"
+                        />
+                      </div>
+                <!-- <div class="form-group">
+                  <label for="course_price">คอร์สเรียน</label>
+                  <input
+                    formControlName="course_price"
+                    type="text"
+                    class="form-control"
+                    
+                    name="course_price"
+                  />
+                </div> -->
+
+                <button  type="submit" class="btn btn-primary">ยืนยัน</button>
+              </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<app-footer></app-footer>
